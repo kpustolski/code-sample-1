@@ -19,7 +19,9 @@ namespace CodeSampleOne
         private AnimalCard animalCardPrefab = default;
         public AnimalRow AnimalRowPrefab { get { return animalRowPrefab; } }
         public AnimalCard AnimalCardPrefab { get { return animalCardPrefab; } }
-        public static List<Animal> AnimalList;
+        public Dictionary<AnimalType, List<Animal>> sortedAnimalRowData = new Dictionary<AnimalType, List<Animal>>();
+
+        private List<Animal> AnimalDataList = new List<Animal>();
 
         //Global Variables
         public static AppManager Instance { get; private set; }
@@ -32,6 +34,10 @@ namespace CodeSampleOne
             //TODO: Create JSON file of animals
             DebugAnimals();
 
+            SortAnimalListByType(AnimalType.Dog);
+            SortAnimalListByType(AnimalType.Cat);
+            SortAnimalListByType(AnimalType.Lizard);
+
             //Setup the home view
             homeView.Setup();
         }
@@ -39,41 +45,70 @@ namespace CodeSampleOne
         // Creates animal objects to debug with.
         public void DebugAnimals()
         {
-            //TODO: Create JSON file of animals
-            AnimalList = new List<Animal>();
             //Debug Objects
-            Animal a1 = new Animal(id: "animal1", name: "Foo", type: AnimalType.Dog);
-            Animal a2 = new Animal(id: "animal2", name: "Korra", type: AnimalType.Cat);
-            Animal a3 = new Animal(id: "animal3", name: "Aang", type: AnimalType.Lizard);
+            Animal a1 = new Animal("animal1", "Foo", AnimalType.Dog);
+            Animal a2 = new Animal("animal2", "Korra", AnimalType.Cat);
+            Animal a3 = new Animal("animal3", "Aang", AnimalType.Lizard);
 
-            AnimalList.Add(a1);
-            AnimalList.Add(a2);
-            AnimalList.Add(a3);
-
-            // Check for unique Ids
-            // Error checking
-            for (int i = 0; i < AnimalList.Count; i++)
-            {
-                if (CheckForUniqueIds(AnimalList[i].id))
-                {
-                    Debug.LogError($"AppManager.cs DebugAnimals.cs :: Duplicate object found for id {AnimalList[i].id}. Make sure each object id is unique.");
-                }
-            }
+            AddToAnimalList(a1);
+            AddToAnimalList(a2);
+            AddToAnimalList(a3);
         }
 
-        public static bool CheckForUniqueIds(string id)
+        //Helper to do validation checks and add data to the list.
+        private void AddToAnimalList(Animal a)
         {
-            foreach (Animal ani in AnimalList)
+            if (string.IsNullOrEmpty(a.id))
             {
-                if (ani.id.Equals(id))
+                Debug.LogError($"AppManager.cs AddToList.cs :: Animal with name: {a.name} have a missing or null unique id.");
+                return;
+            }
+
+            if (AnimalDataList.Contains(a))
+            {
+                Debug.LogError($"AppManager.cs AddToList.cs :: Animal object of id {a.id} already exists. Make sure each object id is unique.");
+                return;
+            }
+
+            AnimalDataList.Add(a);
+        }
+
+        private void SortAnimalListByType(AnimalType type)
+        {
+            List<Animal> tempList = new List<Animal>();
+            foreach (Animal a in AnimalDataList)
+            {
+                if (a.type == type)
                 {
-                    // There is a duplicate ID
-                    return true;
+                    tempList.Add(a);
                 }
             }
-            // All good
-            return false;
+
+            Debug.Log($"type: {type} tempList.Count: {tempList.Count}");
+            if (tempList.Count != 0)
+            {
+                sortedAnimalRowData.Add(type, tempList);
+            }
+            else
+            {
+                Debug.Log($"No animal of type {type} found. Did not add new object to sortedAnimalRowData.");
+            }
+
+
         }
+
+        // private bool DoesAnimalExistInListById(string id)
+        // {
+        //     for (int j = 0; j < AnimalDataList.Count; j++)
+        //     {
+        //         if (AnimalDataList[j].id.Equals(id))
+        //         {
+        //             return true;
+        //         }
+        //     }
+        //     return false;
+        // }
+
         public void Quit()
         {
             Application.Quit();

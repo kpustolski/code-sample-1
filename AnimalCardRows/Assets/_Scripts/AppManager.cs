@@ -20,11 +20,21 @@ namespace CodeSampleOne
         public AnimalRow AnimalRowPrefab { get { return animalRowPrefab; } }
         public AnimalCard AnimalCard { get { return animalCardPrefab; } }
 
+        //Global Variables
+        public static AppManager Instance { get; private set; }
+
         // Start is called before the first frame update
         void Start()
         {
+            Instance = this;
             //Grab the data
             //Setup the home view
+            homeView.Setup();
+        }
+
+        public void Quit()
+        {
+            Application.Quit();
         }
     }
 }

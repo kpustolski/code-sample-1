@@ -13,14 +13,29 @@ namespace CodeSampleOne
         [SerializeField]
         private TextMeshProUGUI titleText = default;
 
-        public void Setup()
-        {
+        private List<AnimalCard> animalCardList = new List<AnimalCard>();
 
+        public void Setup(string title)
+        {
+            titleText.text = title;
+        }
+
+        public void CreateAnimalCard()
+        {
+            AnimalRow card = Instantiate(appMan.AnimalCardPrefab, rowParent);
+            card.Setup();
+            animalCardList.Add(card);
         }
 
         public void Shutdown()
         {
+            foreach (AnimalRow card in animalCardList)
+            {
+                card.Shutdown();
+            }
+            animalCardList.Clear();
 
+            Destroy(gameObject);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace CodeSampleOne
 
         public void Shutdown()
         {
-
+            Destroy(gameObject);
         }
     }
 }

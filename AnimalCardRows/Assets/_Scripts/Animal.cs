@@ -14,8 +14,15 @@ namespace CodeSampleOne
 
     public class Animal
     {
-        public string Id;
-        public string Name;
-        public AnimalType Type;
+        public string id;
+        public string name;
+        public AnimalType type;
+
+        public Animal(string id, string name, AnimalType type)
+        {
+            id = this.id;
+            name = this.name;
+            type = this.type;
+        }
     }
 }

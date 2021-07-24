@@ -18,7 +18,7 @@ namespace CodeSampleOne
         [SerializeField]
         private AnimalCard animalCardPrefab = default;
         public AnimalRow AnimalRowPrefab { get { return animalRowPrefab; } }
-        public AnimalRow AnimalCard { get { return animalCardPrefab; } }
+        public AnimalCard AnimalCard { get { return animalCardPrefab; } }
 
         // Start is called before the first frame update
         void Start()

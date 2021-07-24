@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 namespace CodeSampleOne
 {
@@ -19,11 +20,13 @@ namespace CodeSampleOne
         private AnimalCard animalCardPrefab = default;
         public AnimalRow AnimalRowPrefab { get { return animalRowPrefab; } }
         public AnimalCard AnimalCardPrefab { get { return animalCardPrefab; } }
+
+        // Holds sorted animal data
         public Dictionary<AnimalType, List<Animal>> sortedAnimalRowData = new Dictionary<AnimalType, List<Animal>>();
 
         private List<Animal> AnimalDataList = new List<Animal>();
 
-        //Global Variables
+        //Global Static Variables
         public static AppManager Instance { get; private set; }
 
         // Start is called before the first frame update
@@ -34,9 +37,16 @@ namespace CodeSampleOne
             //TODO: Create JSON file of animals
             DebugAnimals();
 
-            SortAnimalListByType(AnimalType.Dog);
-            SortAnimalListByType(AnimalType.Cat);
-            SortAnimalListByType(AnimalType.Lizard);
+            // Loop through each entry in the AnimalType enum
+            foreach (AnimalType aniType in Enum.GetValues(typeof(AnimalType)))
+            {
+                if (aniType == AnimalType.None)
+                {
+                    continue;
+                }
+
+                SortAnimalListByType(aniType);
+            }
 
             //Setup the home view
             homeView.Setup();
@@ -49,10 +59,12 @@ namespace CodeSampleOne
             Animal a1 = new Animal("animal1", "Foo", AnimalType.Dog);
             Animal a2 = new Animal("animal2", "Korra", AnimalType.Cat);
             Animal a3 = new Animal("animal3", "Aang", AnimalType.Lizard);
+            Animal a4 = new Animal("animal4", "Bleep", AnimalType.Lizard);
 
             AddToAnimalList(a1);
             AddToAnimalList(a2);
             AddToAnimalList(a3);
+            AddToAnimalList(a4);
         }
 
         //Helper to do validation checks and add data to the list.
@@ -60,11 +72,11 @@ namespace CodeSampleOne
         {
             if (string.IsNullOrEmpty(a.id))
             {
-                Debug.LogError($"AppManager.cs AddToList.cs :: Animal with name: {a.name} have a missing or null unique id.");
+                Debug.LogError($"AppManager.cs AddToList.cs :: Animal with name: {a.name} has a missing or null unique id.");
                 return;
             }
 
-            if (AnimalDataList.Contains(a))
+            if (DoesAnimalExistInListById(a.id))
             {
                 Debug.LogError($"AppManager.cs AddToList.cs :: Animal object of id {a.id} already exists. Make sure each object id is unique.");
                 return;
@@ -93,21 +105,19 @@ namespace CodeSampleOne
             {
                 Debug.Log($"No animal of type {type} found. Did not add new object to sortedAnimalRowData.");
             }
-
-
         }
 
-        // private bool DoesAnimalExistInListById(string id)
-        // {
-        //     for (int j = 0; j < AnimalDataList.Count; j++)
-        //     {
-        //         if (AnimalDataList[j].id.Equals(id))
-        //         {
-        //             return true;
-        //         }
-        //     }
-        //     return false;
-        // }
+        private bool DoesAnimalExistInListById(string id)
+        {
+            for (int j = 0; j < AnimalDataList.Count; j++)
+            {
+                if (AnimalDataList[j].id.Equals(id))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         public void Quit()
         {

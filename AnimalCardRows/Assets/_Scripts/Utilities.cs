@@ -4,8 +4,7 @@ using UnityEngine;
 
 namespace CodeSampleOne
 {
-    public class Utilities : MonoBehaviour
+    public static class Utilities
     {
-
     }
 }

@@ -13,12 +13,6 @@ namespace CodeSampleOne
         [SerializeField]
         private TextMeshProUGUI titleText = default;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
         public void Setup()
         {
             titleText.text = "This is a title";

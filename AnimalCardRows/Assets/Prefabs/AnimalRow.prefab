@@ -475,8 +475,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7275627001702794210}
+  - component: {fileID: 8339294183757056462}
   m_Layer: 5
-  m_Name: AnimalRowPanel
+  m_Name: AnimalRow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -503,3 +504,17 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -257.5}
   m_SizeDelta: {x: 0, y: 515}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8339294183757056462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7275627001702794213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f09e6fb2e9b64026b04e720d468bbfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardParent: {fileID: 7275627001343655300}
+  titleText: {fileID: 2889592261293931710}

@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6978035841844631519}
+  - component: {fileID: 6611503868369921683}
   m_Layer: 5
   m_Name: AnimalCard
   m_TagString: Untagged
@@ -36,6 +37,20 @@ RectTransform:
   m_AnchoredPosition: {x: 148, y: -220}
   m_SizeDelta: {x: 256, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6611503868369921683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2148010946029755176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53eec6416510940dda73ed4ca49ca43e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardImage: {fileID: 6682363290558513434}
+  titleText: {fileID: 3886716287443686924}
 --- !u!1 &2635639231429307245
 GameObject:
   m_ObjectHideFlags: 0

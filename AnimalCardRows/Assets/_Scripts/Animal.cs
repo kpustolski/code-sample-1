@@ -18,11 +18,16 @@ namespace CodeSampleOne
         public string name;
         public AnimalType type;
 
-        public Animal(string id, string name, AnimalType type)
+        public Animal(string i, string n, AnimalType t)
         {
-            id = this.id;
-            name = this.name;
-            type = this.type;
+            id = i;
+            name = n;
+            type = t;
+        }
+
+        public override string ToString()
+        {
+            return $"id: {id} name: {name} type: {type}";
         }
     }
 }

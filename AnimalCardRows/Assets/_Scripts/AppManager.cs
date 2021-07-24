@@ -18,7 +18,7 @@ namespace CodeSampleOne
         [SerializeField]
         private AnimalCard animalCardPrefab = default;
         public AnimalRow AnimalRowPrefab { get { return animalRowPrefab; } }
-        public AnimalCard AnimalCard { get { return animalCardPrefab; } }
+        public AnimalCard AnimalCardPrefab { get { return animalCardPrefab; } }
         public static List<Animal> AnimalList;
 
         //Global Variables

@@ -14,22 +14,24 @@ namespace CodeSampleOne
         private TextMeshProUGUI titleText = default;
 
         private List<AnimalCard> animalCardList = new List<AnimalCard>();
+        private AppManager appMan = default;
 
         public void Setup(string title)
         {
+            appMan = AppManager.Instance;
             titleText.text = title;
         }
 
         public void CreateAnimalCard()
         {
-            AnimalRow card = Instantiate(appMan.AnimalCardPrefab, rowParent);
+            AnimalCard card = Instantiate(appMan.AnimalCardPrefab, cardParent);
             card.Setup();
             animalCardList.Add(card);
         }
 
         public void Shutdown()
         {
-            foreach (AnimalRow card in animalCardList)
+            foreach (AnimalCard card in animalCardList)
             {
                 card.Shutdown();
             }

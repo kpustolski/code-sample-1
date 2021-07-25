@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 namespace CodeSampleOne
 {
     public enum AnimalType
@@ -11,7 +11,7 @@ namespace CodeSampleOne
         Cat = 2,
         Lizard = 3
     }
-
+    [Serializable]
     public class Animal
     {
         public string id;
@@ -27,7 +27,22 @@ namespace CodeSampleOne
 
         public override string ToString()
         {
-            return $"id: {id} name: {name} type: {type}";
+            return $"id: {id} name: {name} type: {type} | ";
+        }
+    }
+
+    [Serializable]
+    public class AnimalData
+    {
+        public Animal[] animalDataList;
+
+        public override string ToString()
+        {
+            foreach (var i in animalDataList)
+            {
+                return $"{i.ToString()}";
+            }
+            return "";
         }
     }
 }

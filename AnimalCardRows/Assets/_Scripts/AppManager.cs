@@ -21,10 +21,11 @@ namespace CodeSampleOne
         public AnimalRow AnimalRowPrefab { get { return animalRowPrefab; } }
         public AnimalCard AnimalCardPrefab { get { return animalCardPrefab; } }
 
+        private List<Animal> AnimalDataList = new List<Animal>();
+
+
         // Holds sorted animal data
         public Dictionary<AnimalType, List<Animal>> sortedAnimalRowData = new Dictionary<AnimalType, List<Animal>>();
-
-        private List<Animal> AnimalDataList = new List<Animal>();
 
         //Global Static Variables
         public static AppManager Instance { get; private set; }
@@ -33,9 +34,20 @@ namespace CodeSampleOne
         void Start()
         {
             Instance = this;
+            // https://forum.unity.com/threads/how-to-load-an-array-with-jsonutility.375735/
+            // diegoadrada post
+            // DebugAnimals();
+            string jsonString = "{\"animalDataList\":[{\"id\": \"animal1\", \"name\":\"bleep\", \"type\":1}, {\"id\": \"animal2\", \"name\":\"bloop\", \"type\":2}]}";
+            AnimalData ad = new AnimalData();
+            JsonUtility.FromJsonOverwrite(jsonString, ad);
 
-            //TODO: Create JSON file of animals
-            DebugAnimals();
+            Debug.Log($"{ad.ToString()}");
+
+            // TODO: Better way to consolodate array into List?
+            foreach (var a in ad.animalDataList)
+            {
+                AddToAnimalList(a);
+            }
 
             // Loop through each entry in the AnimalType enum
             foreach (AnimalType aniType in Enum.GetValues(typeof(AnimalType)))
@@ -68,7 +80,14 @@ namespace CodeSampleOne
         }
 
         //Helper to do validation checks and add data to the list.
+        // Debuging
         private void AddToAnimalList(Animal a)
+        {
+            ValidateList(a);
+            AnimalDataList.Add(a);
+        }
+
+        private void ValidateList(Animal a)
         {
             if (string.IsNullOrEmpty(a.id))
             {
@@ -81,8 +100,6 @@ namespace CodeSampleOne
                 Debug.LogError($"AppManager.cs AddToList.cs :: Animal object of id {a.id} already exists. Make sure each object id is unique.");
                 return;
             }
-
-            AnimalDataList.Add(a);
         }
 
         private void SortAnimalListByType(AnimalType type)

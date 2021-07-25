@@ -37,6 +37,8 @@ namespace CodeSampleOne
             // https://forum.unity.com/threads/how-to-load-an-array-with-jsonutility.375735/
             // diegoadrada post
             // DebugAnimals();
+            //TODO: Place json string in its own file and read in.
+            //TODO: Create DataManager?
             string jsonString = "{\"animalDataList\":[{\"id\": \"animal1\", \"name\":\"bleep\", \"type\":1}, {\"id\": \"animal2\", \"name\":\"bloop\", \"type\":2}]}";
             AnimalData ad = new AnimalData();
             JsonUtility.FromJsonOverwrite(jsonString, ad);
@@ -80,7 +82,6 @@ namespace CodeSampleOne
         }
 
         //Helper to do validation checks and add data to the list.
-        // Debuging
         private void AddToAnimalList(Animal a)
         {
             ValidateList(a);

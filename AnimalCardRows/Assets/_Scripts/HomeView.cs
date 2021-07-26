@@ -32,7 +32,7 @@ namespace CodeSampleOne
         {
             string rowTitle = GetRowTitleByAnimalType(type: type);
             AnimalRow row = Instantiate(appMan.AnimalRowPrefab, rowParent);
-            row.Setup(title: rowTitle, animalData: animalData);
+            row.Setup(title: rowTitle, aniData: animalData);
             animalRowList.Add(row);
         }
 

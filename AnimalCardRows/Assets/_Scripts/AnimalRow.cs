@@ -15,20 +15,20 @@ namespace CodeSampleOne
 
         private List<AnimalCard> animalCardList = new List<AnimalCard>();
         private AppManager appMan = default;
-        private List<Animal> mAnimalList = new List<Animal>();
+        private List<Animal> animalData = new List<Animal>();
 
-        public void Setup(string title, List<Animal> animalData)
+        public void Setup(string title, List<Animal> aniData)
         {
             appMan = AppManager.Instance;
             titleText.text = title;
-            mAnimalList = animalData;
+            animalData = aniData;
 
             CreateAnimalCards();
         }
 
         public void CreateAnimalCards()
         {
-            foreach (var a in mAnimalList)
+            foreach (var a in animalData)
             {
                 AnimalCard card = Instantiate(appMan.AnimalCardPrefab, cardParent);
                 card.Setup(id: a.id, name: a.name);

@@ -66,29 +66,8 @@ namespace CodeSampleOne
             homeView.Setup();
         }
 
-        // Creates animal objects to debug with.
-        public void DebugAnimals()
-        {
-            //Debug Objects
-            Animal a1 = new Animal("animal1", "Foo", AnimalType.Dog);
-            Animal a2 = new Animal("animal2", "Korra", AnimalType.Cat);
-            Animal a3 = new Animal("animal3", "Aang", AnimalType.Lizard);
-            Animal a4 = new Animal("animal4", "Bleep", AnimalType.Lizard);
-
-            AddToAnimalList(a1);
-            AddToAnimalList(a2);
-            AddToAnimalList(a3);
-            AddToAnimalList(a4);
-        }
-
         //Helper to do validation checks and add data to the list.
         private void AddToAnimalList(Animal a)
-        {
-            ValidateList(a);
-            AnimalDataList.Add(a);
-        }
-
-        private void ValidateList(Animal a)
         {
             if (string.IsNullOrEmpty(a.id))
             {
@@ -101,6 +80,8 @@ namespace CodeSampleOne
                 Debug.LogError($"AppManager.cs AddToList.cs :: Animal object of id {a.id} already exists. Make sure each object id is unique.");
                 return;
             }
+
+            AnimalDataList.Add(a);
         }
 
         private void SortAnimalListByType(AnimalType type)

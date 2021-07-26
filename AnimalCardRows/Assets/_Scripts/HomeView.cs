@@ -22,7 +22,7 @@ namespace CodeSampleOne
 
             titleText.text = "This is a title for the view";
 
-            foreach (var ani in appMan.sortedAnimalData)
+            foreach (var ani in appMan.DataManager.sortedAnimalData)
             {
                 CreateAnimalRows(type: ani.Key, animalData: ani.Value);
             }

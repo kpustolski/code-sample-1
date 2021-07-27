@@ -17,17 +17,25 @@ namespace CodeSampleOne
         public string id;
         public string name;
         public AnimalType type;
+        public string spriteFileName;
+        public Sprite aniSprite;
 
-        public Animal(string i, string n, AnimalType t)
+        public Animal(string i, string n, AnimalType t, string sp)
         {
             id = i;
             name = n;
             type = t;
+            spriteFileName = sp;
         }
 
         public override string ToString()
         {
-            return $"id: {id} name: {name} type: {type} | ";
+            return $"id: {id} name: {name} type: {type} sprite ";
+        }
+
+        public void LoadSpriteImage()
+        {
+            aniSprite = Resources.Load(spriteFileName) as Sprite;
         }
     }
 

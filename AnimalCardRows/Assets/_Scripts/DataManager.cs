@@ -59,7 +59,7 @@ namespace CodeSampleOne
 
                 if (IsAnimalValid(a))
                 {
-                    a.LoadSpriteImage();
+                    a.Setup();
                     tempList.Add(a);
                 }
             }

@@ -18,7 +18,8 @@ namespace CodeSampleOne
         public string name;
         public AnimalType type;
         public string spriteFileName;
-        public Sprite aniSprite;
+        private Sprite aniSprite;
+        public Sprite AniSprite { get { return aniSprite; } private set { aniSprite = value; } }
 
         public Animal(string i, string n, AnimalType t, string sp)
         {
@@ -33,9 +34,12 @@ namespace CodeSampleOne
             return $"id: {id} name: {name} type: {type} sprite ";
         }
 
-        public void LoadSpriteImage()
+        public void Setup()
         {
-            aniSprite = Resources.Load(spriteFileName) as Sprite;
+            if (!string.IsNullOrEmpty(spriteFileName))
+            {
+                AniSprite = Resources.Load(spriteFileName) as Sprite;
+            }
         }
     }
 

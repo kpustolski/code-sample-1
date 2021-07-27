@@ -53,7 +53,7 @@ namespace CodeSampleOne
                         return "Lizard Row";
                     }
                 default:
-                    return "Missing Name";
+                    return "[Missing Name]";
             }
         }
 

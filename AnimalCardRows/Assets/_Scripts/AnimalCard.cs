@@ -14,12 +14,11 @@ namespace CodeSampleOne
         private TextMeshProUGUI titleText = default;
         private string id = default;
 
-        public void Setup(string id, string name)
+        public void Setup(Animal a)
         {
-            id = this.id;
-            titleText.text = name;
-
-            //TODO: Set up the image
+            id = a.id;
+            titleText.text = a.name;
+            cardImage.sprite = a.AniSprite;
         }
 
         public void Shutdown()

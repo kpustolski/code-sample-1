@@ -12,8 +12,6 @@ namespace CodeSampleOne
         // Holds sorted animal data
         public Dictionary<AnimalType, List<Animal>> sortedAnimalData = new Dictionary<AnimalType, List<Animal>>();
 
-        public Dictionary<string, Sprite> animalSprites = new Dictionary<string, Sprite>();
-
         public void Initialize()
         {
             animalData = new AnimalData();

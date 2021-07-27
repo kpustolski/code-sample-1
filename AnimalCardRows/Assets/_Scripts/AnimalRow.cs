@@ -12,7 +12,6 @@ namespace CodeSampleOne
         private RectTransform cardParent = default;
         [SerializeField]
         private TextMeshProUGUI titleText = default;
-
         private List<AnimalCard> animalCardList = new List<AnimalCard>();
         private AppManager appMan = default;
         private List<Animal> animalData = new List<Animal>();
@@ -31,7 +30,7 @@ namespace CodeSampleOne
             foreach (var a in animalData)
             {
                 AnimalCard card = Instantiate(appMan.AnimalCardPrefab, cardParent);
-                card.Setup(id: a.id, name: a.name);
+                card.Setup(a);
                 animalCardList.Add(card);
             }
         }

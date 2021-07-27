@@ -31,15 +31,19 @@ namespace CodeSampleOne
 
         public override string ToString()
         {
-            return $"id: {id} name: {name} type: {type} sprite ";
+            return $"id: {id} name: {name} type: {type} spriteFileName: {spriteFileName}";
         }
 
         public void Setup()
         {
-            if (!string.IsNullOrEmpty(spriteFileName))
+            if (string.IsNullOrEmpty(spriteFileName))
             {
-                AniSprite = Resources.Load(spriteFileName) as Sprite;
+                Debug.Log($"No image file name for animal with id: {id} found.");
+                return;
             }
+
+            string filePath = $"AnimalImages/{spriteFileName}";
+            AniSprite = Resources.Load<Sprite>(filePath);
         }
     }
 

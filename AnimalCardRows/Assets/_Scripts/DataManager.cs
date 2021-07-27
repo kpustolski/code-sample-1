@@ -14,11 +14,8 @@ namespace CodeSampleOne
 
         public void Initialize()
         {
-            // Grabs the data from the JSON file
-            //TODO: Place json string in its own file and read in.
-            string jsonString = "{\"animalDataList\":[{\"id\": \"animal1\", \"name\":\"bleep\", \"type\":1}, {\"id\": \"animal2\", \"name\":\"bloop\", \"type\":2}]}";
             animalData = new AnimalData();
-            JsonUtility.FromJsonOverwrite(jsonString, animalData);
+            LoadAnimalData();
 
             // Loop through each entry in the AnimalType enum and sort
             foreach (AnimalType aniType in Enum.GetValues(typeof(AnimalType)))
@@ -32,17 +29,35 @@ namespace CodeSampleOne
             }
         }
 
+        private void LoadAnimalData()
+        {
+            // Grabs the data from the JSON file
+            TextAsset dataTextAsset = Resources.Load("AnimalData") as TextAsset;
+
+            if (dataTextAsset == null)
+            {
+                Debug.LogError($"DataManager.cs Initialize() :: Unable to load the Animal Data File.");
+                return;
+            }
+
+            Debug.Log($"Raw file text:{dataTextAsset.text}");
+
+            JsonUtility.FromJsonOverwrite(dataTextAsset.text, animalData);
+        }
+
         private void SortAnimalListByType(AnimalType type)
         {
             List<Animal> tempList = new List<Animal>();
             foreach (Animal a in animalData.animalDataList)
             {
+                if (a.type != type)
+                {
+                    continue;
+                }
+
                 if (IsAnimalValid(a))
                 {
-                    if (a.type == type)
-                    {
-                        tempList.Add(a);
-                    }
+                    tempList.Add(a);
                 }
             }
 
@@ -56,16 +71,17 @@ namespace CodeSampleOne
             }
         }
 
-        private bool DoesAnimalExistById(string id)
+        private bool DoesAnimalIdAlreadyExist(string id)
         {
+            int copies = 0;
             for (int j = 0; j < animalData.animalDataList.Length; j++)
             {
                 if (animalData.animalDataList[j].id.Equals(id))
                 {
-                    return true;
+                    copies++;
                 }
             }
-            return false;
+            return copies > 1;
         }
 
         //Helper to do validation checks.
@@ -77,7 +93,7 @@ namespace CodeSampleOne
                 return false;
             }
 
-            if (DoesAnimalExistById(a.id))
+            if (DoesAnimalIdAlreadyExist(a.id))
             {
                 Debug.LogError($"DataManager.cs IsAnimalValid.cs :: Animal object of id {a.id} already exists. Make sure each object id is unique.");
                 return false;

@@ -1,0 +1,15 @@
+{
+    "animalDataList": 
+    [
+      {
+        "id": "animal1",
+        "name": "bleep",
+        "type": 1
+      },
+      {
+        "id": "animal2",
+        "name": "bloop",
+        "type": 2
+      }
+    ]
+  }

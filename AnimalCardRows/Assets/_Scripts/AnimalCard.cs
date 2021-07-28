@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -13,12 +11,18 @@ namespace CodeSampleOne
         [SerializeField]
         private TextMeshProUGUI titleText = default;
         private string id = default;
+        // Allows us to grab the id of the animal if we need it.
+        public string Id { get { return id; } private set { id = value; } }
 
         public void Setup(Animal a)
         {
             id = a.id;
             titleText.text = a.name;
-            cardImage.sprite = a.AniSprite;
+
+            if (a.AniSprite != null)
+            {
+                cardImage.sprite = a.AniSprite;
+            }
         }
 
         public void Shutdown()

@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using System;
+
 namespace CodeSampleOne
 {
     public enum AnimalType
@@ -11,15 +10,16 @@ namespace CodeSampleOne
         Cat = 2,
         Lizard = 3
     }
+
     [Serializable]
     public class Animal
     {
         public string id;
         public string name;
         public AnimalType type;
+        // File name corresponds to sprites in the Resources/AnimalImages folder.
         public string spriteFileName;
-        private Sprite aniSprite;
-        public Sprite AniSprite { get { return aniSprite; } private set { aniSprite = value; } }
+        public Sprite AniSprite { get; private set; }
 
         public Animal(string i, string n, AnimalType t, string sp)
         {
@@ -38,15 +38,29 @@ namespace CodeSampleOne
         {
             if (string.IsNullOrEmpty(spriteFileName))
             {
-                Debug.Log($"No image file name for animal with id: {id} found.");
+                Debug.Log($"Animal.cs Setup() :: No image file name for animal with id: {id} found. Card will be blank.");
                 return;
             }
 
+            /*
+                In a more complex system, the images could be downloaded from the server
+                and cached locally on the players device for reuse. I'm keeping this example local,
+                so I've placed the images in the Resources/AnimalImages folder.
+            */
+
+            // Load and assign the proper sprite 
             string filePath = $"AnimalImages/{spriteFileName}";
             AniSprite = Resources.Load<Sprite>(filePath);
+
+            //TODO: Test this check
+            if (AniSprite == null)
+            {
+                Debug.LogError($"Animal.cs Setup() :: Sprite with file path {filePath} not found. Check your spelling in the JSON or that the image is in the correct folder.");
+            }
         }
     }
 
+    // Class to store the data we get from the JSON file.
     [Serializable]
     public class AnimalData
     {
@@ -54,9 +68,9 @@ namespace CodeSampleOne
 
         public override string ToString()
         {
-            foreach (var i in animalDataList)
+            foreach (var a in animalDataList)
             {
-                return $"{i.ToString()}";
+                return $"{a.ToString()}";
             }
             return "";
         }

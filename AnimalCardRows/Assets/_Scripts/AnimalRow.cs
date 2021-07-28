@@ -1,7 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 namespace CodeSampleOne
@@ -37,6 +35,7 @@ namespace CodeSampleOne
 
         public void Shutdown()
         {
+            // Clean up the cards and their contents.
             foreach (AnimalCard card in animalCardList)
             {
                 card.Shutdown();

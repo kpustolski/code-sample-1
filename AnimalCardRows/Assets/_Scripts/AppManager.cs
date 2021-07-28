@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+﻿using UnityEngine;
 
 namespace CodeSampleOne
 {
@@ -12,6 +9,7 @@ namespace CodeSampleOne
         [SerializeField]
         private HomeView homeView = default;
 
+        // For the sake of simplicity, I'm placing the prefabs here for this example.
         [Header("Prefabs")]
         [Space(10)]
         [SerializeField]
@@ -21,23 +19,19 @@ namespace CodeSampleOne
         public AnimalRow AnimalRowPrefab { get { return animalRowPrefab; } }
         public AnimalCard AnimalCardPrefab { get { return animalCardPrefab; } }
         public DataManager DataManager { get; private set; }
-        //Global Static Variables
+        //Global Static Variable
         public static AppManager Instance { get; private set; }
 
-        // Start is called before the first frame update
+        // App starts here. My "main" function for this sample.
         void Start()
         {
             Instance = this;
+            // Set up DataManager object.
             DataManager = new DataManager();
             DataManager.Initialize();
 
             //Setup the home view
             homeView.Setup();
-        }
-
-        public void Quit()
-        {
-            Application.Quit();
         }
     }
 }

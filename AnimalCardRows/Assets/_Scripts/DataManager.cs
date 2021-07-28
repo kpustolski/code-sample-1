@@ -1,11 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
 
 namespace CodeSampleOne
 {
-    public class DataManager : MonoBehaviour
+    public class DataManager
     {
         // Holds unsorted animal data
         private AnimalData animalData = default;
@@ -17,7 +16,13 @@ namespace CodeSampleOne
             animalData = new AnimalData();
             LoadAnimalData();
 
-            // Loop through each entry in the AnimalType enum and sort
+            // Check that the data is valid before continuing
+            if (!IsAllDataValid())
+            {
+                return;
+            }
+
+            // Loop through each entry in the AnimalType enum and sort the animal objects
             foreach (AnimalType aniType in Enum.GetValues(typeof(AnimalType)))
             {
                 if (aniType == AnimalType.None)
@@ -28,10 +33,14 @@ namespace CodeSampleOne
                 SortAnimalListByType(aniType);
             }
         }
-
+        /*
+            Ideally the data would be pulled from a server of some sort via
+            in more complex systems. In this example, I'm keeping the
+            data local in the Resources folder. 
+        */
         private void LoadAnimalData()
         {
-            // Grabs the data from the JSON file
+            // Grab the data file
             TextAsset dataTextAsset = Resources.Load("AnimalData") as TextAsset;
 
             if (dataTextAsset == null)
@@ -40,8 +49,7 @@ namespace CodeSampleOne
                 return;
             }
 
-            Debug.Log($"Raw file text:{dataTextAsset.text}");
-
+            // Deserialize the JSON from AnimalData.JSON and store it in animalData
             JsonUtility.FromJsonOverwrite(dataTextAsset.text, animalData);
         }
 
@@ -55,11 +63,9 @@ namespace CodeSampleOne
                     continue;
                 }
 
-                if (IsAnimalValid(a))
-                {
-                    a.Setup();
-                    tempList.Add(a);
-                }
+                // Setup will handle assigning the proper sprite to the animal object.
+                a.Setup();
+                tempList.Add(a);
             }
 
             if (tempList.Count != 0)
@@ -72,22 +78,34 @@ namespace CodeSampleOne
             }
         }
 
-        private bool DoesAnimalIdAlreadyExist(string id)
+        /*
+            The validation functions below could be made into a seperate debug tool for validating the data
+            before we use it in the project.
+        */
+        private bool IsAllDataValid()
         {
-            int copies = 0;
-            for (int j = 0; j < animalData.animalDataList.Length; j++)
+            int errors = 0;
+            foreach (Animal a in animalData.animalDataList)
             {
-                if (animalData.animalDataList[j].id.Equals(id))
+                if (!IsAnimalValid(a))
                 {
-                    copies++;
+                    errors++;
                 }
             }
-            return copies > 1;
+
+            Debug.Log($"DataManager.cs IsAllDataValid() :: Number of errors found in the data: {errors}");
+            return errors == 0;
         }
 
-        //Helper to do validation checks.
+        //Helper to do more validation checks of the animal data.
         private bool IsAnimalValid(Animal a)
         {
+            if (!Enum.IsDefined(typeof(AnimalType), a.type))
+            {
+                Debug.LogError($"DataManager.cs IsAnimalValid.cs :: Animal with id: {a.id} has an incorrect type assigned. Make sure it's within the parameters of the AnimalType enum.");
+                return false;
+            }
+
             if (string.IsNullOrEmpty(a.id))
             {
                 Debug.LogError($"DataManager.cs IsAnimalValid.cs :: Animal with name: {a.name} has a missing or null unique id.");
@@ -96,23 +114,27 @@ namespace CodeSampleOne
 
             if (DoesAnimalIdAlreadyExist(a.id))
             {
-                Debug.LogError($"DataManager.cs IsAnimalValid.cs :: Animal object of id {a.id} already exists. Make sure each object id is unique.");
+                Debug.LogError($"DataManager.cs IsAnimalValid.cs :: Animal object of id {a.id} already exists. Check object with the name: {a.name}. Make sure the id is unique for each object.");
                 return false;
             }
 
             return true;
         }
 
-        // public Animal GetAnimalById(string id)
-        // {
-        //     foreach (Animal a in animalData.animalDataList)
-        //     {
-        //         if (a.id.Equals(id))
-        //         {
-        //             return a;
-        //         }
-        //     }
-        //     return null;
-        // }
+
+        // Helper to see if there are duplicate animal objects in the list based on its id.
+        // The id for each animal should be unique.
+        private bool DoesAnimalIdAlreadyExist(string id)
+        {
+            int copies = 0;
+            for (int i = 0; i < animalData.animalDataList.Length; i++)
+            {
+                if (animalData.animalDataList[i].id.Equals(id))
+                {
+                    copies++;
+                }
+            }
+            return copies > 1;
+        }
     }
 }

@@ -11,6 +11,7 @@ namespace CodeSampleOne
     {
         public List<Animal> data = new List<Animal>();
 
+        //TODO: Test this
         public override string ToString()
         {
             foreach (var a in data)
@@ -20,9 +21,9 @@ namespace CodeSampleOne
             return "";
         }
 
-        public string CreateJsonStringFromData()
+        public string CreateJsonStringFromData(bool makeJSONPretty)
         {
-            return JsonUtility.ToJson(this, true);
+            return JsonUtility.ToJson(this, makeJSONPretty);
         }
 
         public int ValidateData()

@@ -16,6 +16,7 @@ namespace CodeSampleOne
     [CustomEditor(typeof(AnimalDataHandler))]
     public class AnimalDataEditor : Editor
     {
+        public bool makeJSONPretty = default;
         private SerializedProperty animalListProperty = default;
         private static GUIStyle titleStyle = default;
         private const string kFilePath = "Assets/Resources/AnimalData.json";
@@ -44,6 +45,12 @@ namespace CodeSampleOne
             EditorGUILayout.Space();
             GUILayout.Space(20);
 
+            makeJSONPretty = EditorGUILayout.Toggle("Format JSON", makeJSONPretty);
+            if (GUILayout.Button("Preview JSON", buttonOptions))
+            {
+                OnPreviewJSON();
+            }
+
             if (GUILayout.Button("Validate Data", buttonOptions))
             {
                 OnValidateData();
@@ -66,16 +73,14 @@ namespace CodeSampleOne
         private void OnUpdateData()
         {
             var animalListData = (AnimalDataHandler)animalListProperty.serializedObject.targetObject;
-            var jsonData = animalListData.CreateJsonStringFromData();
+            var jsonData = animalListData.CreateJsonStringFromData(makeJSONPretty: makeJSONPretty);
 
             StreamWriter sw = new StreamWriter(kFilePath);
             sw.Write(jsonData);
             sw.Close();
 
             Debug.Log($"Animal Data has been updated in Assets/Resources/AnimalData.json!");
-            //TODO: Add option to see JSON printed in the console.
             //TODO: Update field for sprite to be a sprite window.
-            Debug.Log($"{jsonData}");
 
             EditorUtility.DisplayDialog(
                 "Done!",
@@ -105,6 +110,14 @@ namespace CodeSampleOne
                 $"Data is good to go. No errors found!",
                 "OK"
             );
+        }
+
+        // Prints the JSON string to the console
+        private void OnPreviewJSON()
+        {
+            var animalListData = (AnimalDataHandler)animalListProperty.serializedObject.targetObject;
+            var jsonData = animalListData.CreateJsonStringFromData(makeJSONPretty: makeJSONPretty);
+            Debug.Log($"{jsonData}");
         }
     }
 }

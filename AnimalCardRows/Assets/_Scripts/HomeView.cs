@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 namespace CodeSampleOne
 {
@@ -11,6 +12,8 @@ namespace CodeSampleOne
         private RectTransform rowParent = default;
         [SerializeField]
         private TextMeshProUGUI titleText = default;
+        [SerializeField]
+        private ScrollRect scrollView = default;
         private List<AnimalRow> animalRowList = new List<AnimalRow>();
         private AppManager appMan = default;
 
@@ -34,7 +37,7 @@ namespace CodeSampleOne
         {
             string rowTitle = GetRowTitleByAnimalType(type: type);
             AnimalRow row = Instantiate(appMan.AnimalRowPrefab, rowParent);
-            row.Setup(title: rowTitle, aniData: animalData);
+            row.Setup(title: rowTitle, aniData: animalData, parentScrollRect: scrollView);
             animalRowList.Add(row);
         }
 

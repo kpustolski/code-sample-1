@@ -44,6 +44,11 @@ namespace CodeSampleOne
             EditorGUILayout.Space();
             GUILayout.Space(20);
 
+            if (GUILayout.Button("Validate Data", buttonOptions))
+            {
+                OnValidateData();
+            }
+
             if (GUILayout.Button("Update Animal Data File", buttonOptions))
             {
                 OnUpdateData();
@@ -78,6 +83,28 @@ namespace CodeSampleOne
                 "OK"
             );
             AssetDatabase.Refresh();
+        }
+
+        private void OnValidateData()
+        {
+            var animalListData = (AnimalDataHandler)animalListProperty.serializedObject.targetObject;
+            var totalErrors = animalListData.ValidateData();
+
+            if (totalErrors > 0)
+            {
+                EditorUtility.DisplayDialog(
+                    "Errors found!",
+                    $"There are some errors found in the data. Check the console for more information.\n Number of errors found {totalErrors}",
+                    "OK"
+                );
+                return;
+            }
+
+            EditorUtility.DisplayDialog(
+                "Data is valid!",
+                $"Data is good to go. No errors found!",
+                "OK"
+            );
         }
     }
 }

@@ -11,6 +11,15 @@ namespace CodeSampleOne
     {
         public List<Animal> data = new List<Animal>();
 
+        public override string ToString()
+        {
+            foreach (var a in data)
+            {
+                return $"{a.ToString()}";
+            }
+            return "";
+        }
+
         public string CreateJsonStringFromData()
         {
             return JsonUtility.ToJson(this, true);

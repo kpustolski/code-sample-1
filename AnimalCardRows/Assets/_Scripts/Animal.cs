@@ -60,20 +60,4 @@ namespace CodeSampleOne
             }
         }
     }
-
-    // Class to store the data we get from the JSON file.
-    [Serializable]
-    public class AnimalData
-    {
-        public Animal[] animalDataList;
-
-        public override string ToString()
-        {
-            foreach (var a in animalDataList)
-            {
-                return $"{a.ToString()}";
-            }
-            return "";
-        }
-    }
 }

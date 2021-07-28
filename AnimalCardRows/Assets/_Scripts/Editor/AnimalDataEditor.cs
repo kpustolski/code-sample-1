@@ -19,7 +19,7 @@ namespace CodeSampleOne
         private SerializedProperty animalListProperty = default;
         private static GUIStyle titleStyle = default;
         private const string kFilePath = "Assets/Resources/AnimalData.json";
-        private const string infoString = "This tool is used to help update AnimalData.json in the Resources folder.";
+        private const string infoString = "This tool is used to help update AnimalData.json in the Resources folder. It is recommended that you do not update that file directly. Any changes you make will be overwritten by this tool.";
         private GUILayoutOption[] buttonOptions = new GUILayoutOption[] {
             GUILayout.Height(24)
         };
@@ -50,11 +50,12 @@ namespace CodeSampleOne
             }
 
             GUILayout.Space(20);
+            EditorGUILayout.HelpBox(infoString, MessageType.Info);
+
+            GUILayout.Space(20);
             serializedObject.Update();
             base.OnInspectorGUI();
             serializedObject.ApplyModifiedProperties();
-            GUILayout.Space(20);
-            EditorGUILayout.HelpBox(infoString, MessageType.Info);
         }
 
         private void OnUpdateData()

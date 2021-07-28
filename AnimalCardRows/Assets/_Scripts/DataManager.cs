@@ -7,13 +7,13 @@ namespace CodeSampleOne
     public class DataManager
     {
         // Holds unsorted animal data
-        private AnimalData animalData = default;
+        private AnimalDataHandler animalData = default;
         // Holds sorted animal data
         public Dictionary<AnimalType, List<Animal>> sortedAnimalData = new Dictionary<AnimalType, List<Animal>>();
 
         public void Initialize()
         {
-            animalData = new AnimalData();
+            animalData = new AnimalDataHandler();
             LoadAnimalData();
 
             // Check that the data is valid before continuing
@@ -56,7 +56,7 @@ namespace CodeSampleOne
         private void SortAnimalListByType(AnimalType type)
         {
             List<Animal> tempList = new List<Animal>();
-            foreach (Animal a in animalData.animalDataList)
+            foreach (Animal a in animalData.data)
             {
                 if (a.type != type)
                 {
@@ -85,7 +85,7 @@ namespace CodeSampleOne
         private bool IsAllDataValid()
         {
             int errors = 0;
-            foreach (Animal a in animalData.animalDataList)
+            foreach (Animal a in animalData.data)
             {
                 if (!IsAnimalValid(a))
                 {
@@ -127,9 +127,9 @@ namespace CodeSampleOne
         private bool DoesAnimalIdAlreadyExist(string id)
         {
             int copies = 0;
-            for (int i = 0; i < animalData.animalDataList.Length; i++)
+            for (int i = 0; i < animalData.data.Count; i++)
             {
-                if (animalData.animalDataList[i].id.Equals(id))
+                if (animalData.data[i].id.Equals(id))
                 {
                     copies++;
                 }

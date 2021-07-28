@@ -19,7 +19,8 @@ namespace CodeSampleOne
         public AnimalType type;
         // File name corresponds to sprites in the Resources/AnimalImages folder.
         public string spriteFileName;
-        public Sprite AniSprite { get; private set; }
+        private Sprite aniSprite;
+        public Sprite AniSprite { get { return aniSprite; } private set { aniSprite = value; } }
 
         public Animal(string i, string n, AnimalType t, string sp)
         {

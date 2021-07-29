@@ -78,8 +78,6 @@ namespace CodeSampleOne
             StreamWriter sw = new StreamWriter(kFilePath);
             sw.Write(jsonData);
             sw.Close();
-
-            Debug.Log($"Animal Data has been updated in Assets/Resources/AnimalData.json!");
             //TODO: Update field for sprite to be a sprite window.
 
             EditorUtility.DisplayDialog(
@@ -99,7 +97,7 @@ namespace CodeSampleOne
             {
                 EditorUtility.DisplayDialog(
                     "Errors found!",
-                    $"There are some errors found in the data. Check the console for more information.\n Number of errors found {totalErrors}",
+                    $"There are some errors found in the data. Check the console for more information.\n Number of errors found: {totalErrors}",
                     "OK"
                 );
                 return;

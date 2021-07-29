@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   data:
   - id: husky
-    name: Obi Wan
+    name: Boba Fetch
     type: 1
     spriteFileName: Husky
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua. '
   - id: corgi
-    name: Cheese
+    name: Chewbarka
     type: 1
     spriteFileName: Corgi
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -32,7 +32,7 @@ MonoBehaviour:
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua. '
   - id: flowerCat
-    name: Daisy
+    name: Wanda
     type: 2
     spriteFileName: FlowerCat
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -44,8 +44,32 @@ MonoBehaviour:
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua. '
   - id: greenGecko
-    name: Car Isurance
+    name: Geico
     type: 3
     spriteFileName: Lizard
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+  - id: flowerCat2
+    name: Monica
+    type: 2
+    spriteFileName: flowerCat
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+  - id: blackCat2
+    name: Darcy
+    type: 2
+    spriteFileName: blackCat
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+  - id: corgi2
+    name: Luke Skybarker
+    type: 1
+    spriteFileName: Corgi
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. '
+  - id: husky2
+    name: Arftoo-D2
+    type: 1
+    spriteFileName: Husky
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
       eiusmod tempor incididunt ut labore et dolore magna aliqua. '

@@ -38,6 +38,7 @@ namespace CodeSampleOne
         public override void Shutdown()
         {
             base.Shutdown();
+            Destroy(gameObject);
         }
     }
 }

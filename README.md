@@ -10,6 +10,7 @@
 # Overview
 
 *Last Updated 7.29.2021*
+* Started: 7.23.2021
 * Unity version used: 2020.3.14f1
 * Main goal: Create a UI based off of JSON data.
 

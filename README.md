@@ -42,7 +42,7 @@ As a part of this sample, I also created a Unity editor tool to help create the 
 * Use a different font.
 * Animate button presses and the modal dialog appearing/disappearing.
    * I'd likely use the [DOTween library](http://dotween.demigiant.com/) for this
-* Adjust for aspect ratios other than 16:9.
+* Adjust for aspect ratios other than 16:9 portrait.
 
 ## Quick Links
 * [Scripts Folder](https://github.com/moose15/code-sample-1/tree/main/AnimalCardRows/Assets/_Scripts)

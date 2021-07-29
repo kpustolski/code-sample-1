@@ -13,7 +13,7 @@
 * Unity version used: 2020.3.14f1
 * Main goal: Create a UI based off of JSON data.
 
-This code sample demonstrates a simplified version of a task I may recieve for work. For the sake of this example, I kept the images and JSON data all local within the Asset folder. 
+For the sake of this simple example, I kept the images and JSON data all local within the Asset folder. 
 
 Using the data within the JSON file, I create rows of different animals. At the moment it's restricted to Dogs, Cats, and Lizards. The page itself scrolls vertically while each row scrolls horizontally. Tapping on an animal card will show a modal with "More Info".
 

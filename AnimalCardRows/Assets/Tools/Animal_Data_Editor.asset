@@ -17,23 +17,35 @@ MonoBehaviour:
     name: Obi Wan
     type: 1
     spriteFileName: Husky
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. '
   - id: corgi
     name: Cheese
     type: 1
     spriteFileName: Corgi
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. '
   - id: blackCat
     name: Agatha
     type: 2
     spriteFileName: BlackCat
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. '
   - id: flowerCat
     name: Daisy
     type: 2
     spriteFileName: FlowerCat
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. '
   - id: Iguana
     name: Iggy Smalls
     type: 3
     spriteFileName: Iguana
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. '
   - id: greenGecko
     name: Car Isurance
     type: 3
     spriteFileName: Lizard
+    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+      eiusmod tempor incididunt ut labore et dolore magna aliqua. '

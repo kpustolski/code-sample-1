@@ -17,7 +17,7 @@ This code sample demonstrates a simplified version of a task I may recieve for w
 
 Using the data within the JSON file, I create rows of different animals. At the moment it's restricted to Dogs, Cats, and Lizards. The page itself scrolls vertically while each row scrolls horizontally. Tapping on an animal card will show a modal with "More Info".
 
-The example's **Start** function is in [AppManager.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/Managers/AppManager.cs). 
+The example's **Start** function is in [AppManager.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/AppManager.cs). 
 
 <p float="left" align="center">
 <img width="200" alt="codeSampleOne_02" src="https://user-images.githubusercontent.com/4196059/127436613-50ca7980-f03a-4065-96a5-b34e13399e3e.png">
@@ -31,8 +31,8 @@ As a part of this sample, I also created a Unity editor tool to help create the 
 
 **Scripts involved:**
 * [AnimalDataEditor.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/Editor/AnimalDataEditor.cs)
-* [Animal.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/Data/Animal.cs)
-* [AnimalDataHandler.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/ToolScripts/AnimalDataHandler.cs)
+* [Animal.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/Animal.cs)
+* [AnimalDataHandler.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/AnimalDataHandler.cs)
 
 <p align="center">
 <img width="400" alt="codeSampleOne_04" src="https://user-images.githubusercontent.com/4196059/127438538-0388204e-b7fe-46e9-8ee3-66b2e7399239.png">

@@ -16,9 +16,6 @@ namespace CodeSampleOne
         private ScrollRect scrollView = default;
         private List<AnimalRow> animalRowList = new List<AnimalRow>();
         private AppManager appMan = default;
-
-        // This would be localized and more dynamic in a more robust system.
-        // I'm keeping it a const string for simplicity.
         private const string viewTitle = "Party Animals";
 
         public void Setup()
@@ -44,7 +41,6 @@ namespace CodeSampleOne
         /* 
             In a more complex system, titles would be localized 
             and most likley not set directly in code like this.
-            Again, this is for the simplicity of this example.
         */
         private string GetRowTitleByAnimalType(AnimalType type)
         {

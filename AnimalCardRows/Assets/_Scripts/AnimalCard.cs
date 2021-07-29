@@ -38,6 +38,7 @@ namespace CodeSampleOne
 
         public void Shutdown()
         {
+            button.onClick.RemoveAllListeners();
             Destroy(gameObject);
         }
     }

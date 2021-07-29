@@ -32,12 +32,6 @@ namespace CodeSampleOne
         //Helper to do more validation checks of the animal data.
         private bool IsAnimalValid(Animal a)
         {
-            if (!Enum.IsDefined(typeof(AnimalType), a.type))
-            {
-                Debug.LogError($"DataManager.cs IsAnimalValid.cs :: Animal with id: {a.id} has an incorrect type assigned. Make sure it's within the parameters of the AnimalType enum.");
-                return false;
-            }
-
             if (string.IsNullOrEmpty(a.id))
             {
                 Debug.LogError($"DataManager.cs IsAnimalValid.cs :: Animal with name: {a.name} has a missing or null unique id.");

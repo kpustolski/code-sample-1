@@ -49,12 +49,6 @@ namespace CodeSampleOne
                 return;
             }
 
-            /*
-                In a more complex system, the images could be downloaded from the server
-                and cached locally on the players device for reuse. I'm keeping this example local,
-                so I've placed the images in the Resources/AnimalImages folder.
-            */
-
             // Load and assign the proper sprite 
             string filePath = $"AnimalImages/{spriteFileName}";
             AniSprite = Resources.Load<Sprite>(filePath);

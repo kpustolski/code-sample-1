@@ -8,11 +8,6 @@ using System;
 
 namespace CodeSampleOne
 {
-
-    /*
-        Helpful resources:
-        Unity3D: Using reorderable List in Custom Editor: https://xinyustudio.wordpress.com/2015/07/21/unity3d-using-reorderablelist-in-custom-editor/
-    */
     [CustomEditor(typeof(AnimalDataHandler))]
     public class AnimalDataEditor : Editor
     {

@@ -13,6 +13,8 @@ namespace CodeSampleOne
         private Image animalImage = default;
         [SerializeField]
         private TextMeshProUGUI descText = default;
+        [SerializeField]
+        private TextMeshProUGUI titleText = default;
 
         public override void Initialize()
         {
@@ -23,6 +25,7 @@ namespace CodeSampleOne
         {
             animalImage.sprite = a.AniSprite;
             descText.text = a.description;
+            titleText.text = a.name;
 
             if (cbOnSelect != null)
             {

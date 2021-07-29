@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 namespace CodeSampleOne
 {
@@ -10,19 +11,29 @@ namespace CodeSampleOne
         private Image cardImage = default;
         [SerializeField]
         private TextMeshProUGUI titleText = default;
-        private string id = default;
-        // Allows us to grab the id of the animal if we need it.
-        public string Id { get { return id; } private set { id = value; } }
+        [SerializeField]
+        private Button button = default;
+        private UnityAction cbOnSelect = default;
+        private Animal animalObj = default;
 
-        public void Setup(Animal a)
+        public void Setup(Animal animal, UnityAction onSelect)
         {
-            id = a.id;
-            titleText.text = a.name;
+            cbOnSelect = onSelect;
+            animalObj = animal;
 
-            if (a.AniSprite != null)
+            titleText.text = animalObj.name;
+
+            if (animalObj.AniSprite != null)
             {
-                cardImage.sprite = a.AniSprite;
+                cardImage.sprite = animalObj.AniSprite;
             }
+
+            button.onClick.AddListener(ShowInfoModal);
+        }
+
+        public void ShowInfoModal()
+        {
+            Modals.CreateInfoModal(animalObj, cbOnSelect);
         }
 
         public void Shutdown()

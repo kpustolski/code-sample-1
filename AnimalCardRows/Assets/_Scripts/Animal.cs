@@ -22,20 +22,22 @@ namespace CodeSampleOne
         // There's probably a better way to assign the sprite other than a string for the
         // JSON, but for now I'll keep it a string.
         public string spriteFileName;
+        public string description;
         private Sprite aniSprite;
         public Sprite AniSprite { get { return aniSprite; } private set { aniSprite = value; } }
 
-        public Animal(string i, string n, AnimalType t, string sp)
+        public Animal(string i, string n, AnimalType t, string sp, string d)
         {
             id = i;
             name = n;
             type = t;
             spriteFileName = sp;
+            description = d;
         }
 
         public override string ToString()
         {
-            return $"id: {id} name: {name} type: {type} spriteFileName: {spriteFileName}";
+            return $"id: {id} name: {name} type: {type} spriteFileName: {spriteFileName} description {description}";
         }
 
         public void Setup()

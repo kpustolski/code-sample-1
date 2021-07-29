@@ -17,15 +17,7 @@ The example's **Start** function is in [AppManager.cs](https://github.com/moose1
 </p>
 
 ## The Animal Data Tool
-As a part of this sample, I also created a Unity editor tool to help create the data for the AnimalData JSON file. This tool can:
-* Turn the Animal fields in the tool into JSON and write it into the AnimalData.json file.
-* Print the JSON in the console (for debugging).
-   * It can print it "pretty" formatted or unformatted.
-* Validate the data. Validation checks include:
-   *  Duplicate unique ID checks
-   *  Missing IDs (ie. the id field is left blank)
-
-**Note:** Some error checking also occurs at runtime.
+As a part of this sample, I also created a Unity editor tool to help create the data for the AnimalData JSON file.
 
 **Scripts involved:**
 * [AnimalDataEditor.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/Editor/AnimalDataEditor.cs)

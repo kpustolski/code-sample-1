@@ -1,5 +1,5 @@
 # Code Sample 1: Animal Rows and Data
-* Last Updated 7.28.2021*
+*Last Updated 7.28.2021*
 * Unity version used: 2020.3.14f1
 * Main goal: Create a UI based around generated JSON data.
 
@@ -7,16 +7,18 @@ This code sample demonstrates a simplified version of a task I may recieve for w
 
 Using the data within the JSON file, I create rows of different animals. At the moment it's restricted to Dogs, Cats, and Lizards. The page itself scrolls vertically while each row scrolls horizontally. Tapping on an animal card will show a modal with "More Info".
 
-The example's "Start" or "Main" function is in [AppManager.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/Managers/AppManager.cs).
+The example's **Start** function is in [AppManager.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/Managers/AppManager.cs). 
 
 <p float="left" align="center">
 <img width="200" alt="codeSampleOne_02" src="https://user-images.githubusercontent.com/4196059/127436613-50ca7980-f03a-4065-96a5-b34e13399e3e.png">
 <img width="200" alt="codeSampleOne_01" src="https://user-images.githubusercontent.com/4196059/127436604-d250f02c-a1d5-4ca6-bdf9-00a9f6303e1f.png">
+  <img width="200" alt="codeSampleOne_04" src="https://user-images.githubusercontent.com/4196059/127441431-9071f51e-7dfa-4073-8d8c-93a8e20ae511.gif">
+
 </p>
 
 ## The Animal Data Tool
 As a part of this sample, I also created a Unity editor tool to help create the data for the AnimalData JSON file. This tool can:
-* Serialize the data created in tool as JSON and write it into the AnimalData.json file.
+* Turn the Animal fields in the tool into JSON and write it into the AnimalData.json file.
 * Print the JSON in the console (for debugging).
    * It can print it "pretty" formatted or unformatted.
 * Validate the data. Validation checks include:
@@ -24,6 +26,11 @@ As a part of this sample, I also created a Unity editor tool to help create the 
    *  Missing IDs (ie. the id field is left blank)
 
 **Note:** Some error checking also occurs at runtime.
+
+**Scripts involved:**
+* [AnimalDataEditor.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/Editor/AnimalDataEditor.cs)
+* [Animal.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/Data/Animal.cs)
+* [AnimalDataHandler.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/ToolScripts/AnimalDataHandler.cs)
 
 <p align="center">
 <img width="400" alt="codeSampleOne_04" src="https://user-images.githubusercontent.com/4196059/127438538-0388204e-b7fe-46e9-8ee3-66b2e7399239.png">

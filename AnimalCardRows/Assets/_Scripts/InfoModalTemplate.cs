@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Events;
 
 namespace CodeSampleOne
 {
@@ -20,10 +19,15 @@ namespace CodeSampleOne
             base.Initialize();
         }
 
-        public void Setup(Animal a)
+        public void Setup(Animal a, UnityAction cbOnSelect)
         {
             animalImage.sprite = a.AniSprite;
             descText.text = a.description;
+
+            if (cbOnSelect != null)
+            {
+                cbOnSelect();
+            }
 
             Initialize();
         }

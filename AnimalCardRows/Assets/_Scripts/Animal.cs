@@ -22,6 +22,7 @@ namespace CodeSampleOne
         // There's probably a better way to assign the sprite other than a string for the
         // JSON, but for now I'll keep it a string.
         public string spriteFileName;
+        [TextArea(3, 5)]
         public string description;
         private Sprite aniSprite;
         public Sprite AniSprite { get { return aniSprite; } private set { aniSprite = value; } }

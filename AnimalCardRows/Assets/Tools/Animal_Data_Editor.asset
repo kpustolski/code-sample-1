@@ -13,7 +13,27 @@ MonoBehaviour:
   m_Name: Animal_Data_Editor
   m_EditorClassIdentifier: 
   data:
-  - id: id
-    name: Name
+  - id: husky
+    name: Obi Wan
     type: 1
-    spriteFileName: sprite
+    spriteFileName: Husky
+  - id: corgi
+    name: Cheese
+    type: 1
+    spriteFileName: Coorgi
+  - id: blackCat
+    name: Agatha
+    type: 2
+    spriteFileName: BlackCat
+  - id: flowerCat
+    name: Daisy
+    type: 2
+    spriteFileName: FlowerCat
+  - id: Iguana
+    name: Iggy Smalls
+    type: 3
+    spriteFileName: Iguana
+  - id: greenGecko
+    name: Car Isurance
+    type: 3
+    spriteFileName: Lizard

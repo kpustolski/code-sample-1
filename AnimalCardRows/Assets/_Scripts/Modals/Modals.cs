@@ -8,7 +8,7 @@ namespace CodeSampleOne
         private static AppManager appMan = AppManager.Instance;
         public static void CreateInfoModal(Animal a, UnityAction onSelect)
         {
-            InfoModalTemplate m = Instantiate(appMan.InfoModalTemplatePrefab, appMan.GetModalParent());
+            InfoModalTemplate m = Instantiate(appMan.InfoModalTemplatePrefab, appMan.ModalParent);
             m.Setup(a, onSelect);
         }
     }

@@ -27,6 +27,7 @@ namespace CodeSampleOne
         public AnimalRow AnimalRowPrefab { get { return animalRowPrefab; } }
         public AnimalCard AnimalCardPrefab { get { return animalCardPrefab; } }
         public InfoModalTemplate InfoModalTemplatePrefab { get { return infoModalTemplatePrefab; } }
+        public RectTransform ModalParent { get { return modalParent; } }
 
         public DataManager DataManager { get; private set; }
         //Global Static Variable
@@ -42,11 +43,6 @@ namespace CodeSampleOne
 
             //Setup the home view
             homeView.Setup();
-        }
-
-        public RectTransform GetModalParent()
-        {
-            return modalParent;
         }
     }
 }

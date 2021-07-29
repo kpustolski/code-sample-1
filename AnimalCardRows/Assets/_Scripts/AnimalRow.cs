@@ -38,7 +38,12 @@ namespace CodeSampleOne
             foreach (var a in animalData)
             {
                 AnimalCard card = Instantiate(appMan.AnimalCardPrefab, cardParent);
-                card.Setup(a);
+                card.Setup(
+                    animal: a,
+                    onSelect: () =>
+                    {
+                        Debug.Log($"{a.name} has been selected.");
+                    });
                 animalCardList.Add(card);
             }
         }

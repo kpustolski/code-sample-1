@@ -1,25 +1,14 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
 
 namespace CodeSampleOne
 {
+    // This class helps with the data on the AnimalDataEditor tool.
     [CreateAssetMenu(fileName = "Animal_Data_Editor", menuName = "Animal Data Editor")]
-
     public class AnimalDataHandler : ScriptableObject
     {
         public List<Animal> data = new List<Animal>();
-
-        //TODO: Test this
-        public override string ToString()
-        {
-            foreach (var a in data)
-            {
-                return $"{a.ToString()}";
-            }
-            return "";
-        }
 
         public string CreateJsonStringFromData(bool makeJSONPretty)
         {

@@ -46,7 +46,7 @@ namespace CodeSampleOne
             GUILayout.Space(20);
 
             makeJSONPretty = EditorGUILayout.Toggle("Format JSON", makeJSONPretty);
-            if (GUILayout.Button("Preview JSON", buttonOptions))
+            if (GUILayout.Button("Preview JSON In Console", buttonOptions))
             {
                 OnPreviewJSON();
             }
@@ -78,7 +78,6 @@ namespace CodeSampleOne
             StreamWriter sw = new StreamWriter(kFilePath);
             sw.Write(jsonData);
             sw.Close();
-            //TODO: Update field for sprite to be a sprite window.
 
             EditorUtility.DisplayDialog(
                 "Done!",

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 namespace CodeSampleOne
 {
@@ -18,6 +19,8 @@ namespace CodeSampleOne
         public string name;
         public AnimalType type;
         // File name corresponds to sprites in the Resources/AnimalImages folder.
+        // There's probably a better way to assign the sprite other than a string for the
+        // JSON, but for now I'll keep it a string.
         public string spriteFileName;
         private Sprite aniSprite;
         public Sprite AniSprite { get { return aniSprite; } private set { aniSprite = value; } }
@@ -53,11 +56,26 @@ namespace CodeSampleOne
             string filePath = $"AnimalImages/{spriteFileName}";
             AniSprite = Resources.Load<Sprite>(filePath);
 
-            //TODO: Test this check
             if (AniSprite == null)
             {
                 Debug.LogError($"Animal.cs Setup() :: Sprite with file path {filePath} not found. Check your spelling in the JSON or that the image is in the correct folder.");
             }
+        }
+    }
+
+    // This class helps store the deserialized JSON data in DataManager.cs
+    [Serializable]
+    public class AnimalData
+    {
+        public List<Animal> data = new List<Animal>();
+
+        public override string ToString()
+        {
+            foreach (var a in data)
+            {
+                return $"{a.ToString()}";
+            }
+            return "";
         }
     }
 }

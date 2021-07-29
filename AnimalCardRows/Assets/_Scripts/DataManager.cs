@@ -7,13 +7,13 @@ namespace CodeSampleOne
     public class DataManager
     {
         // Holds unsorted animal data
-        private AnimalDataHandler animalData = default;
+        private AnimalData animalData = default;
         // Holds sorted animal data
         public Dictionary<AnimalType, List<Animal>> sortedAnimalData = new Dictionary<AnimalType, List<Animal>>();
 
         public void Initialize()
         {
-            animalData = new AnimalDataHandler();
+            animalData = new AnimalData();
             LoadAnimalData();
 
             // Loop through each entry in the AnimalType enum and sort the animal objects

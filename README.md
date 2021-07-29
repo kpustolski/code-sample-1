@@ -11,7 +11,7 @@
 
 *Last Updated 7.29.2021*
 * Unity version used: 2020.3.14f1
-* Main goal: Create a UI based around generated JSON data.
+* Main goal: Create a UI based off of JSON data.
 
 This code sample demonstrates a simplified version of a task I may recieve for work. For the sake of this example, I kept the images and JSON data all local within the Asset folder. 
 

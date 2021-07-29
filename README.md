@@ -1,5 +1,15 @@
-# Code Sample 1: Animal Rows and Data
-*Last Updated 7.28.2021*
+# Table of Contents
+- [Table of Contents](#table-of-contents)
+- [Overview](#overview)
+  - [The Animal Data Tool](#the-animal-data-tool)
+  - [Future Tasks](#future-tasks)
+  - [Quick Links](#quick-links)
+  - [Resources](#resources)
+  - [Images Used](#images-used)
+  
+# Overview
+
+*Last Updated 7.29.2021*
 * Unity version used: 2020.3.14f1
 * Main goal: Create a UI based around generated JSON data.
 

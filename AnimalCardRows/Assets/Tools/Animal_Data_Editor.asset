@@ -20,7 +20,7 @@ MonoBehaviour:
   - id: corgi
     name: Cheese
     type: 1
-    spriteFileName: Coorgi
+    spriteFileName: Corgi
   - id: blackCat
     name: Agatha
     type: 2

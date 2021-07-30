@@ -2,7 +2,6 @@
 - [Table of Contents](#table-of-contents)
 - [Overview](#overview)
   - [The Animal Data Tool](#the-animal-data-tool)
-  - [Future Tasks](#future-tasks)
   - [Quick Links](#quick-links)
   - [Resources](#resources)
   - [Images Used](#images-used)
@@ -21,10 +20,9 @@ Using the data within the JSON file, I create rows of different animals. At the 
 The example's **Start** function is in [AppManager.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/AppManager.cs). 
 
 <p float="left" align="center">
-<img width="200" alt="codeSampleOne_02" src="https://user-images.githubusercontent.com/4196059/127436613-50ca7980-f03a-4065-96a5-b34e13399e3e.png">
-<img width="200" alt="codeSampleOne_01" src="https://user-images.githubusercontent.com/4196059/127436604-d250f02c-a1d5-4ca6-bdf9-00a9f6303e1f.png">
-  <img width="200" alt="codeSampleOne_04" src="https://user-images.githubusercontent.com/4196059/127441431-9071f51e-7dfa-4073-8d8c-93a8e20ae511.gif">
-
+  <img width="200" alt="CodeSampleOne_01" src="https://user-images.githubusercontent.com/4196059/127598337-097cd6f5-8767-41e6-a1c8-534b3c733c2e.png">
+  <img width="200" alt="CodeSampleOne_02" src="https://user-images.githubusercontent.com/4196059/127598347-04b4d52f-cb89-40fe-a0e8-773476ba39f3.png">
+  <img width="200" alt="codeSampleOne_03" src="https://user-images.githubusercontent.com/4196059/127598349-9b11d186-94cc-4d85-b5b8-278bca5f3660.gif">
 </p>
 
 ## The Animal Data Tool
@@ -39,12 +37,6 @@ As a part of this sample, I also created a Unity editor tool to help create the 
 <img width="400" alt="codeSampleOne_04" src="https://user-images.githubusercontent.com/4196059/127438538-0388204e-b7fe-46e9-8ee3-66b2e7399239.png">
 </p>
 
-## Future Tasks
-* Use a different font.
-* Animate button presses and the modal dialog appearing/disappearing.
-   * I'd likely use the [DOTween library](http://dotween.demigiant.com/) for this
-* Adjust for aspect ratios other than 16:9 portrait.
-
 ## Quick Links
 * [Scripts Folder](https://github.com/moose15/code-sample-1/tree/main/AnimalCardRows/Assets/_Scripts)
 * [Animal Data JSON file](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/Resources/AnimalData.json)
@@ -52,6 +44,9 @@ As a part of this sample, I also created a Unity editor tool to help create the 
 ## Resources
 * [Unity UI Extensions](https://bitbucket.org/UnityUIExtensions/unity-ui-extensions/wiki/Home)
    * ScrollConflictManager and Gradient2 are from this repository.
+* [DOTween library](http://dotween.demigiant.com/) 
+   * I used this library to animate the buttons and modal. 
+* The Lato Font used is from [Google Fonts](https://fonts.google.com/) 
 
 ## Images Used
 * Husky: https://pixabay.com/photos/husky-dog-dog-breed-animal-3380548/

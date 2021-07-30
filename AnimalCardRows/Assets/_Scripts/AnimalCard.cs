@@ -43,9 +43,12 @@ namespace CodeSampleOne
 
         public void ShowInfoModal()
         {
+            // Turn off interaction of the button to prevent double clicks.
+            button.interactable = false;
             rectTransform.DOPunchScale(scalePunch, scaleDuration, vibrato, elasticity)
             .OnComplete(() =>
             {
+                button.interactable = true;
                 Modals.CreateInfoModal(animalObj, cbOnSelect);
             });
         }

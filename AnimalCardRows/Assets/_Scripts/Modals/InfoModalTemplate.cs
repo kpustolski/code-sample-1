@@ -67,6 +67,8 @@ namespace CodeSampleOne
 
         public override void Shutdown()
         {
+            // Prevent double clicks by turning off interactivity of the button.
+            cancelButton.interactable = false;
             Sequence hideSequence = DOTween.Sequence();
             hideSequence.Append(buttonCanvasGroup.DOFade(0f, buttonFadeDuration))
                 .Append(contentPanelCanvasGroup.DOFade(0f, contentFadeDuration))

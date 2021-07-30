@@ -2,6 +2,7 @@
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.Events;
+using DG.Tweening;
 
 namespace CodeSampleOne
 {
@@ -16,10 +17,19 @@ namespace CodeSampleOne
         private UnityAction cbOnSelect = default;
         private Animal animalObj = default;
 
+        // For animation
+        private RectTransform rectTransform;
+        private Vector3 scalePunch = new Vector3(0.07f, 0.07f, 0.07f);
+        private const float scaleDuration = 0.2f;
+        private const int vibrato = 10;
+        private const float elasticity = 1;
+
+
         public void Setup(Animal animal, UnityAction onSelect)
         {
             cbOnSelect = onSelect;
             animalObj = animal;
+            rectTransform = this.gameObject.GetComponent<RectTransform>();
 
             titleText.text = animalObj.name;
 
@@ -33,7 +43,11 @@ namespace CodeSampleOne
 
         public void ShowInfoModal()
         {
-            Modals.CreateInfoModal(animalObj, cbOnSelect);
+            rectTransform.DOPunchScale(scalePunch, scaleDuration, vibrato, elasticity)
+            .OnComplete(() =>
+            {
+                Modals.CreateInfoModal(animalObj, cbOnSelect);
+            });
         }
 
         public void Shutdown()

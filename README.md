@@ -10,14 +10,15 @@
 # Overview
 
 *Last Updated 7.29.2021*
+* Started: 7.23.2021
 * Unity version used: 2020.3.14f1
-* Main goal: Create a UI based around generated JSON data.
+* Main goal: Create a UI based off of JSON data.
 
-This code sample demonstrates a simplified version of a task I may recieve for work. For the sake of this example, I kept the images and JSON data all local within the Asset folder. 
+For the sake of this simple example, I kept the images and JSON data all local within the Asset folder. 
 
 Using the data within the JSON file, I create rows of different animals. At the moment it's restricted to Dogs, Cats, and Lizards. The page itself scrolls vertically while each row scrolls horizontally. Tapping on an animal card will show a modal with "More Info".
 
-The example's **Start** function is in [AppManager.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/Managers/AppManager.cs). 
+The example's **Start** function is in [AppManager.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/AppManager.cs). 
 
 <p float="left" align="center">
 <img width="200" alt="codeSampleOne_02" src="https://user-images.githubusercontent.com/4196059/127436613-50ca7980-f03a-4065-96a5-b34e13399e3e.png">
@@ -31,8 +32,8 @@ As a part of this sample, I also created a Unity editor tool to help create the 
 
 **Scripts involved:**
 * [AnimalDataEditor.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/Editor/AnimalDataEditor.cs)
-* [Animal.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/Data/Animal.cs)
-* [AnimalDataHandler.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/ToolScripts/AnimalDataHandler.cs)
+* [Animal.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/Animal.cs)
+* [AnimalDataHandler.cs](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/_Scripts/AnimalDataHandler.cs)
 
 <p align="center">
 <img width="400" alt="codeSampleOne_04" src="https://user-images.githubusercontent.com/4196059/127438538-0388204e-b7fe-46e9-8ee3-66b2e7399239.png">
@@ -42,7 +43,7 @@ As a part of this sample, I also created a Unity editor tool to help create the 
 * Use a different font.
 * Animate button presses and the modal dialog appearing/disappearing.
    * I'd likely use the [DOTween library](http://dotween.demigiant.com/) for this
-* Adjust for aspect ratios other than 16:9.
+* Adjust for aspect ratios other than 16:9 portrait.
 
 ## Quick Links
 * [Scripts Folder](https://github.com/moose15/code-sample-1/tree/main/AnimalCardRows/Assets/_Scripts)

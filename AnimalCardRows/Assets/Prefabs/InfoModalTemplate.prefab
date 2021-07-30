@@ -248,6 +248,9 @@ MonoBehaviour:
   animalImage: {fileID: 4995727798658922570}
   descText: {fileID: 4995727797087908686}
   titleText: {fileID: 7879501512828107775}
+  overlayCanvasGroup: {fileID: 3350969597408531314}
+  contentPanelCanvasGroup: {fileID: 3182821338521502918}
+  buttonCanvasGroup: {fileID: 4439989031945920997}
 --- !u!1 &4995727797483712211
 GameObject:
   m_ObjectHideFlags: 0
@@ -379,6 +382,7 @@ GameObject:
   - component: {fileID: 4995727797843934595}
   - component: {fileID: 4995727797843934605}
   - component: {fileID: 4995727797843934604}
+  - component: {fileID: 3350969597408531314}
   m_Layer: 5
   m_Name: BgOverlay
   m_TagString: Untagged
@@ -443,6 +447,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &3350969597408531314
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4995727797843934594}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4995727798371430255
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,8 +593,9 @@ GameObject:
   - component: {fileID: 4995727798386199574}
   - component: {fileID: 4995727798386199573}
   - component: {fileID: 4995727798386199572}
+  - component: {fileID: 3182821338521502918}
   m_Layer: 5
-  m_Name: Mask
+  m_Name: ContentPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -695,6 +712,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!225 &3182821338521502918
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4995727798386199562}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4995727798530259866
 GameObject:
   m_ObjectHideFlags: 0
@@ -704,6 +733,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4995727798530259867}
+  - component: {fileID: 4439989031945920997}
   m_Layer: 5
   m_Name: ButtonPanel
   m_TagString: Untagged
@@ -731,6 +761,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &4439989031945920997
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4995727798530259866}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4995727798658922568
 GameObject:
   m_ObjectHideFlags: 0

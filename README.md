@@ -3,12 +3,13 @@
 - [Overview](#overview)
   - [The Animal Data Tool](#the-animal-data-tool)
   - [Quick Links](#quick-links)
+  - [Future Possibilities](#future-possibilities)
   - [Resources](#resources)
   - [Images Used](#images-used)
   
 # Overview
 
-*Last Updated 7.29.2021*
+*Last Updated 7.31.2021*
 * Started: 7.23.2021
 * Unity version used: 2020.3.14f1
 * Main goal: Create a UI based off of JSON data.
@@ -40,6 +41,10 @@ As a part of this sample, I also created a Unity editor tool to help create the 
 ## Quick Links
 * [Scripts Folder](https://github.com/moose15/code-sample-1/tree/main/AnimalCardRows/Assets/_Scripts)
 * [Animal Data JSON file](https://github.com/moose15/code-sample-1/blob/main/AnimalCardRows/Assets/Resources/AnimalData.json)
+
+# Future possibilities
+
+* Integrate PlayFab into the example and store the JSON data on a server.
 
 ## Resources
 * [Unity UI Extensions](https://bitbucket.org/UnityUIExtensions/unity-ui-extensions/wiki/Home)

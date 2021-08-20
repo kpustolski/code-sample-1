@@ -6,8 +6,6 @@ namespace CodeSampleOne
 {
     public static class Utilities
     {
-
-        #region Debug Functions
         // Creates animal objects to debug with.
         public static List<Animal> DebugAnimals()
         {
@@ -25,7 +23,5 @@ namespace CodeSampleOne
             return tempList;
 
         }
-        #endregion
-
     }
 }

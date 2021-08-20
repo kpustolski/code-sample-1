@@ -34,13 +34,13 @@ namespace CodeSampleOne
         {
             if (string.IsNullOrEmpty(a.id))
             {
-                Debug.LogError($"DataManager.cs IsAnimalValid.cs :: Animal with name: {a.name} has a missing or null unique id.");
+                Debug.LogError($"AnimalDataHandler.cs IsAnimalValid() :: Animal with name: {a.name} has a missing or null unique id.");
                 return false;
             }
 
             if (DoesAnimalIdAlreadyExist(a.id))
             {
-                Debug.LogError($"DataManager.cs IsAnimalValid.cs :: Animal object of id {a.id} already exists. Check object with the name: {a.name}. Make sure the id is unique for each object.");
+                Debug.LogError($"AnimalDataHandler.cs IsAnimalValid() :: Animal object of id {a.id} already exists. Check object with the name: {a.name}. Make sure the id is unique for each object.");
                 return false;
             }
 

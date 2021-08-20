@@ -39,7 +39,7 @@ namespace CodeSampleOne
 
             if (dataTextAsset == null)
             {
-                Debug.LogError($"DataManager.cs Initialize() :: Unable to load the Animal Data File.");
+                Debug.LogError($"DataManager.cs LoadAnimalData() :: Unable to load the Animal Data File.");
                 return;
             }
 
